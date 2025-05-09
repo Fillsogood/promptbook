@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "collabops"
+version = "0.1.0"
+description = "PromptBook - GPT Prompt Management API"
+authors = ["Fillsogood <jdd05273@naver.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2"
+djangorestframework = "^3.16.0"
+djangorestframework-simplejwt = "^5.5.0"
+openai = "^1.78.0"
+psycopg2-binary = "^2.9.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-django = "^4.11.1"
+coverage = "^7.8.0"
+factory-boy = "^3.3.3"
+black = "^25.1.0"
+isort = "^6.0.1"
+mypy = "^1.15.0"
+django-stubs = "^5.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+python_version = "3.10"
+strict = false
+
+[[tool.mypy.overrides]]
+module = "*.migrations.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "manage"
+ignore_errors = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.dev"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.dev"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
