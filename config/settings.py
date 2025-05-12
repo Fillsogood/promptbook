@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     # Local
     "apps.accounts",
     "apps.prompts",
-    "apps.core",
-    "apps.common",
 ]
 
 MIDDLEWARE = [
