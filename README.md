@@ -49,3 +49,39 @@ GPT 프롬프트를 저장하고, 실행하고, 실행 이력을 확인할 수 �
 | 기타        | token_blacklist 사용, 커스텀 유저모델 적용 |
 
 ---
+
+## ▶️ 실행 방법
+
+```bash
+# 1. Poetry로 의존성 설치
+poetry install
+
+# 2. DB 마이그레이션 적용
+python manage.py migrate
+
+# 3. 테스트 코드 실행 (Pytest)
+./run.sh
+
+---
+
+## 🛠️ .env 환경 변수 예시
+
+`.env` 파일은 프로젝트 설정값을 안전하게 관리하기 위한 환경 변수 파일입니다.
+
+```env
+# Django
+SECRET_KEY=your_django_secret_key_here
+
+# MySQL
+DB_NAME=
+DB_USER= 
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=
+
+# JWT (선택)
+ACCESS_TOKEN_LIFETIME_MINUTES=30
+REFRESH_TOKEN_LIFETIME_DAYS=7
+```
+
+> `.env` 파일은 Git에 커밋되지 않으며, `.gitignore`에 포함되어 있습니다.
